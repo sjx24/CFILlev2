@@ -1,0 +1,18 @@
+<input type="button" id="btn-ajax">
+<script>
+    var btn = document.getElementById("btn-ajax");
+
+    btn.addEventListener("click", () => {
+        //XMLHttpRequest 객체 생성
+        var xhr = new XMLHttpRequest();
+
+        //요청을 보낼 방식, url, 비동기여부 설정
+        xhr.open('GET', 'https://script.google.com/macros/s/AKfycbxRRN5iLnfXfyZfxE_OwkfL7k9qBtD-cjrQVPQgknk4Z2WZIzCtSs7B-mI8izeel1zb/exec' + '?School=' + 'Harold'  , true);//Output.gs 링크로 호출
+
+        //요청 전송
+        xhr.send();
+
+        //Callback
+        console.log(xhr.response)
+    });
+</script>
