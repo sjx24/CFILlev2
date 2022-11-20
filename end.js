@@ -5,9 +5,9 @@ const mostRecentScore = localStorage.getItem('mostRecentScore')
 
 const highScores = JSON.parse(localStorage.getItem('highScores')) || []
 
-const MAX_HIGH_SCORES = 5
+const MAX_HIGH_SCORES = 1
 
-let url = "https://script.googleusercontent.com/macros/echo?user_content_key=-15P64AfnfmjG_zxq3GqRWUCZIdI56tFQ6I7YBlqU95W6j-YPO5LKA-lkalSw5bN8H71uuHfzJkFD0etQgysuTT012_Utrfsm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnK-JN6DmQWi6Nx_9Yj0ByluqY-sy0KFpm7WWtzAc-66m848hMNxrtCpiE1Psby2o08S2HxMkC_Zu_h2kM7KIVKP7vmwBL0QzfQ&lib=M_S1IgKAT0SVeO0aw9th-aj4UJGmVUE6z"
+let url = "https://script.google.com/macros/s/AKfycbzzJ8xWsc5NX7Ca-Hh07T7TZwj_uHc3_DtrV1LZC3DXz2hiesq9zRprkeWNvl1xC8nT/exec"
 
 finalScore.innerText = mostRecentScore
 
@@ -30,7 +30,7 @@ saveHighScore = e => {
     var xhr = new XMLHttpRequest();
 
     //요청을 보낼 방식, url, 비동기여부 설정
-    xhr.open('GET', url + "?School=" + username.value + "&Name=" + mostRecentScore, true); //?__KEY값__=
+    xhr.open('GET', url + "?name=" + username.value + "&score=" + mostRecentScore, true); //?__KEY값__=
     //요청 전송
     xhr.send();
     //Callback
@@ -53,7 +53,7 @@ saveHighScore = e => {
         return b.score - a.score;
     })
 
-    highScores.splice(5)
+    highScores.splice(1)
 
     localStorage.setItem('highScores', JSON.stringify(highScores))
 
